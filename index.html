@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+    <title>Cryptash Password Generator</title>
+</head>
+<body>
+
+    <div id="navbar">
+        <a alt="brand-logo" href="https://www.google.com"><img src="logo.png" alt="brand-image"></a>
+    </div>
+    
+    <div id="main">
+        <h1>Password Generator</h1>
+        <p>Having trouble thinking of a secure password? Use the Cryptash password generator to create strong passwords.</p>
+    </div>
+
+    <div id="generator">
+        <textarea name="" id="passArea" cols="30" rows="10" readonly></textarea>
+
+        <div class="inputArea">
+            <label>Password Length</label> 
+            <input type="number" id="length" min='4' max='15' value='8' />
+        </div>
+
+        <div class="inputArea">
+            <label>Include uppercase letters</label> 
+			<input type="checkbox" id="uppercase"/>
+        </div>
+
+        <div class="inputArea">
+            <label>Include lowercase letters</label> 
+			<input type="checkbox" id="lowercase"/>
+        </div>
+
+        <div class="inputArea">
+            <label>Include numbers</label> 
+			<input type="checkbox" id="numbers"/>
+        </div>
+
+        <div class="inputArea">
+            <label>Include symbols</label> 
+			<input type="checkbox" id="symbols"/>
+        </div>
+
+        <button id="generate">Generate Password</button>
+
+    </div>
+
+    <footer>© 2021 Cryptash Inc. All rights reserved</footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

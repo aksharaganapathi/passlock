@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico">
-    <title>Cryptash Password Generator</title>
+    <title>PassLock Password Generator</title>
 </head>
 <body>
 
@@ -18,43 +18,58 @@
     </div>
     
     <div id="main">
-        <h1>Password Generator</h1>
-        <p>Having trouble thinking of a secure password? Use the Cryptash password generator to create strong passwords.</p>
+        <span>PASSWORD GENERATOR</span>
+        <h1>Create a strong password</h1>
+        <p>Having trouble thinking of a secure password? Use the our tool to instantly create a strong, secure password.</p>
+        <p>Note: On smaller screen sizes, you will have to scroll to see the entire password.</p>
     </div>
 
-    <div id="generator">
-        <textarea name="" id="passArea" cols="30" rows="10" readonly></textarea>
-
-        <div class="inputArea">
-            <label>Password Length</label> 
-            <input type="number" id="length" min='4' max='15' value='8' />
+    <div class="passArea">
+        <div class="passDiv">
+            <h1 id="password"></h1>
         </div>
-
-        <div class="inputArea">
-            <label>Include uppercase letters</label> 
-			<input type="checkbox" id="uppercase"/>
-        </div>
-
-        <div class="inputArea">
-            <label>Include lowercase letters</label> 
-			<input type="checkbox" id="lowercase"/>
-        </div>
-
-        <div class="inputArea">
-            <label>Include numbers</label> 
-			<input type="checkbox" id="numbers"/>
-        </div>
-
-        <div class="inputArea">
-            <label>Include symbols</label> 
-			<input type="checkbox" id="symbols"/>
-        </div>
-
-        <button id="generate">Generate Password</button>
-
+        <div class="bar"></div>
     </div>
 
-    <footer>© 2021 Cryptash Inc. All rights reserved</footer>
+    <div class="customizeDiv padding" id="generator">
+        <h1>Customize your Password</h1>
+        <hr>
+
+        <div>
+            <div class="slide">
+                <p>Password Length</p> 
+                <div class="numberDiv" id="val">15</div>
+                <input type="range" min="10" max="35" value="15" class="slider" id="length">
+            </div>
+        </div>
+
+    <div class="checkArea">
+        <div class="inputArea">
+            <label>Uppercase</label> 
+			<input type="checkbox" id="uppercase" checked="checked"/>
+        </div>
+
+        <div class="inputArea">
+            <label>Lowercase</label> 
+			<input type="checkbox" id="lowercase" checked="checked"/>
+        </div>
+
+        <div class="inputArea">
+            <label>Numbers</label> 
+			<input type="checkbox" id="numbers" checked="checked"/>
+        </div>
+
+        <div class="inputArea">
+            <label>Symbols</label> 
+			<input type="checkbox" id="symbols" checked="checked"/>
+        </div>
+    </div>
+    </div>
+
+    <button id="generate">Generate Password</button>
+    <button id="copy">Copy to Clipboard</button>
+
+    <footer>© 2021. All rights reserved. Project created for UTD Cybersecurity Research.</footer>
 
     <script src="index.js"></script>
 </body>

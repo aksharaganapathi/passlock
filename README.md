@@ -2,7 +2,7 @@
 
 UTDCS Cybersecurity Research Project
 
-This group composes of Akshara Ganapathi, Giko Njendu, Jan de La Cruz and Yifan. 
+This group composes of Akshara Ganapathi, Giko Njendu, Jan de La Cruz and Yifan Ma. 
 
 The project is comprised of three main elements: a password generator, a password strength tester, and a password storage service. 
 

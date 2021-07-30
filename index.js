@@ -1,4 +1,4 @@
-const result = document.getElementById('passArea');
+const result = document.getElementById('password');
 const length = document.getElementById('length');
 const uppercase = document.getElementById('uppercase');
 const lowercase = document.getElementById('lowercase');
@@ -32,11 +32,9 @@ function generatePassword(lower, upper, number, symbol, length) {
 		return '';
 	}
 	
-	for(let i = 0; i < length; i += typesCount) {
-		typesArr.forEach(type => {
-			const funcName = Object.keys(type)[0];
-			generatedPassword += randomFunc[funcName]();
-		});
+	for (let i = 0; i < length; i++) {
+		const rand = Math.floor(Math.random() * typesArr.length);
+		generatedPassword += randomFunc[Object.keys(typesArr[rand])[0]]();
 	}
 	
 	const finalPassword = generatedPassword.slice(0, length);
@@ -60,3 +58,26 @@ function getRandomSymbol() {
 	const symbols = '!@#$%^&*(){}[]=<>/,.'
 	return symbols[Math.floor(Math.random() * symbols.length)];
 }
+
+document.getElementById("length").oninput = function() {
+    let val = document.getElementById("length").value //gets the oninput value
+   	document.getElementById('val').innerText = val
+};
+
+document.getElementById("copy").addEventListener("click", function(){
+	let copyText = document.getElementById("password");
+	let temp = document.createElement("textarea");
+	document.body.appendChild(temp);
+	temp.value= copyText.innerText
+
+	if(temp.value === ""){
+		alert("Nothing to copy");
+		temp.remove();
+		return;
+	}
+
+	temp.select();
+	document.execCommand("copy");
+	temp.remove();
+	alert("Copied Password!");
+})

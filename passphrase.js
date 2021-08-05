@@ -13,12 +13,8 @@ const generatePassphrase = (passphrase) => {
     let finalPass = "";
     
     for(let i = 0; i < passArr.length; i++) {
-        if(symbolChecker.test(passArr[i])) {
-            passArr[i] = getRandomSymbol();
-        }
-
         if(passArr[i] === "6"){
-            passArr[i] = "9"
+            passArr[i] = "9";
         } else if(passArr[i] === "9"){
             passArr[i] = "6";
         } else if(passArr[i] === "$"){
@@ -30,18 +26,39 @@ const generatePassphrase = (passphrase) => {
         } else if(passArr[i] === "3"){
             passArr[i] = "E";
         } else if(passArr[i] === "D"){
-            passArr[i] = "B"
+            passArr[i] = "B";
         } else if(passArr[i] === "B"){
-            passArr[i] = "D"
+            passArr[i] = "D";
         } else if(passArr[i] === "W"){
-            passArr[i] = "M"
+            passArr[i] = "M";
         } else if(passArr[i] === "M"){
-            passArr[i] = "W"
+            passArr[i] = "W";
         } else if(passArr[i] === "O"){
             passArr[i] = "0";
         } else if(passArr[i] === "0"){
             passArr[i] = "O";
+        } else if(passArr[i] === "a" || passArr[i] === "A"){
+            passArr[i] = "@";
+        } else if(passArr[i] === "@"){
+            let random = Math.random();
+            if(random >= 0.5){
+                passArr[i] = "A";
+            } else {
+                passArr[i] = "a";
+            }
+        } else if(passArr[i] === "d"){
+            passArr[i] = "b";
+        } else if(passArr[i] === "b"){
+            passArr[i] = "d";
+        } else if(passArr[i] === "m"){
+            passArr[i] = "w";
+        } else if(passArr[i] === "w"){
+            passArr[i] = "m";
         } else {
+            if(symbolChecker.test(passArr[i])) {
+                passArr[i] = getRandomSymbol();
+            }
+            
             if(/^[A-Z]$/i.test(passArr[i])){
                 let random = Math.random();
     

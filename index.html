@@ -1,1 +1,42 @@
-l
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2"  />
+    <title>PassLock Password Strenth Tester</title>
+</head>
+<body>
+
+    <div id="navbar">
+        <a alt="brand-logo" href="https://www.google.com"><img src="logo.png" alt="brand-image"></a>
+    </div>
+    
+    <div id="main">
+        <span>PASSWORD STRENGTH TESTER</span>
+        <h1>Test your password</h1>
+        <p>Not sure if your password is secure? Use the our tool to instantly check if your password is strong and secure.</p>
+        <p>Note: On smaller screen sizes, you will have to scroll to see the entire password.</p>
+    </div>
+
+    <div class="passArea">
+        <div class="passDiv">
+            <input type="password" placeholder="Enter Your Password Here" id="password">
+        </div>
+        <div class="bar" id="bar"></div>
+    </div>
+
+    <div id="result">
+        <h1 id="text"></h1>
+    </div>
+
+    <footer>© 2021. All rights reserved. Project created for UTD Cybersecurity Research.</footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

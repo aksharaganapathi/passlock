@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+    <title>PassLock Passphrase Generator</title>
+</head>
+<body>
+
+    <div id="navbar">
+        <a alt="brand-logo" href="https://www.google.com"><img src="logo.png" alt="brand-image"></a>
+    </div>
+    
+    <div id="main">
+        <span>PASSPHRASE GENERATOR</span>
+        <h1>Create a passphrase</h1>
+        <p>Using a word as a password? Use our passphrase generator to turn that into a strong passphrase.</p>
+        <p>Note: On smaller screen sizes, you will have to scroll to see the entire password.</p>
+        <span>Related: <a href="index.html">Password Generator</a> </span>
+    </div>
+
+    <div class="passArea">
+        <div class="passDiv">
+            <h1 id="result"></h1>
+        </div>
+        <div class="bar"></div>
+    </div>
+
+    <div class="passArea">
+        <div class="passDiv">
+            <input type="password" placeholder="Enter Your Password Here" id="password" maxlength="33">
+        </div>
+        <div class="bar" id="bar"></div>
+    </div>
+
+    <!-- <button id="generate">Generate Password</button> -->
+    <button id="copy">Copy to Clipboard</button>
+
+    <footer>© 2021. All rights reserved. Project created for UTD Cybersecurity Research.</footer>
+
+    <script src="passphrase.js"></script>
+</body>
+</html>

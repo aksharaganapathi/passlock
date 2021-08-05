@@ -12,7 +12,7 @@ The password generator can be found at: https://passlockpasswordgenerator.netlif
 
 ![image](https://user-images.githubusercontent.com/68826294/127684148-16c21a46-15e0-4271-b9ce-461d83f76502.png)
 
-# Passphrase Generator
+## Passphrase Generator
 
 The passphrase generator can be found at: https://passlockpasswordgenerator.netlify.app/. The project was developed using HTML, CSS, and JavaScript. Since many people tend to use words as their passwords, we created a tool that can take a word and make it into a secure password. The website also features a copy-paste functionality to make the quality of life when using this site better. 
 

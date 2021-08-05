@@ -1,83 +1,45 @@
-const result = document.getElementById('password');
-const length = document.getElementById('length');
-const uppercase = document.getElementById('uppercase');
-const lowercase = document.getElementById('lowercase');
-const numbers = document.getElementById('numbers');
-const symbols = document.getElementById('symbols');
-const generate = document.getElementById('generate');
+let timeout;
+let password = document.getElementById("password");
+let result = document.getElementById("result")
+let bar = document.getElementById("bar");
+let textArea = document.getElementById("text");
+let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{10,})')
+let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,}))')
 
-const randomFunc = {
-	lower: getRandomLower,
-	upper: getRandomUpper,
-	number: getRandomNumber,
-	symbol: getRandomSymbol
+function strengthChecker(passwordParameter) {
+    if(strongPassword.test(passwordParameter)) {
+        bar.style.backgroundColor = "green";
+        let str = "Strong";
+        let newStr = str.fontcolor("green");
+        textArea.innerHTML = "Your password strength is: " + newStr;
+        result.hidden = false;
+    } else if(mediumPassword.test(passwordParameter)) {
+        bar.style.backgroundColor = '#D3B535';
+        let str = "Medium";
+        let newStr = str.fontcolor("#D3B535");
+        textArea.innerHTML = "Your password strength is: " + newStr;
+        result.hidden = false;
+    } else {
+        bar.style.backgroundColor = 'red';
+        let str = "Weak";
+        let newStr = str.fontcolor("red");
+        textArea.innerHTML = "Your password strength is: " + newStr;
+        result.hidden = false;
+    }
 }
 
-generate.addEventListener('click', () => {
-	const tempLength = parseInt(length.value);
-	const hasLower = lowercase.checked;
-	const hasUpper = uppercase.checked;
-	const hasNumber = numbers.checked;
-	const hasSymbol = symbols.checked;
-	
-	result.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, tempLength);
+password.addEventListener("input", () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => strengthChecker(password.value), 400);
+    if(password.value.length !== 0) {
+        bar.style.backgroundColor = "#7698e7"
+    }
 });
 
-function generatePassword(lower, upper, number, symbol, length) {
-	let generatedPassword = '';
-	const typesCount = lower + upper + number + symbol;
-	const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
-	
-	if(typesCount === 0) {
-		return '';
-	}
-	
-	for (let i = 0; i < length; i++) {
-		const rand = Math.floor(Math.random() * typesArr.length);
-		generatedPassword += randomFunc[Object.keys(typesArr[rand])[0]]();
-	}
-	
-	const finalPassword = generatedPassword.slice(0, length);
-	
-	return finalPassword;
-}
+password.addEventListener("mouseover", function(){
+    password.type = "text";
+});
 
-function getRandomLower() {
-	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
-
-function getRandomUpper() {
-	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
-
-function getRandomNumber() {
-	return +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
-
-function getRandomSymbol() {
-	const symbols = '!@#$%^&*(){}[]=<>/,.'
-	return symbols[Math.floor(Math.random() * symbols.length)];
-}
-
-document.getElementById("length").oninput = function() {
-    let val = document.getElementById("length").value //gets the oninput value
-   	document.getElementById('val').innerText = val
-};
-
-document.getElementById("copy").addEventListener("click", function(){
-	let copyText = document.getElementById("password");
-	let temp = document.createElement("textarea");
-	document.body.appendChild(temp);
-	temp.value= copyText.innerText
-
-	if(temp.value === ""){
-		alert("Nothing to copy");
-		temp.remove();
-		return;
-	}
-
-	temp.select();
-	document.execCommand("copy");
-	temp.remove();
-	alert("Copied Password!");
-})
+password.addEventListener("mouseout", function(){
+    password.type = "password";
+});
